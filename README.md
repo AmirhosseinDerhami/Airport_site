@@ -7,3 +7,7 @@ this is a simple site
 * 2-java syntax 
 * 3-how to use color
 * 4-how to manage data in project 
+
+
+...
+to run the program open **run.bat**
