@@ -10,6 +10,11 @@ public class Site {
         usersLength = data.getUsers().size();
     }
 
+    /**
+     * welcome panel
+     * - Register - Login - Exit
+     * @throws Exception Exception
+     */
     public void welcomePanel() throws Exception {
         while (true) {
             ClearConsul.clsLn();
@@ -21,7 +26,7 @@ public class Site {
                     "- Register", "- Login", "- Exit").println();
 
             switch (getCommendCodeWithCls(2, 10,
-                    "enter the commend code :", 1, 2, 3, -2021)) {
+                    "enter the commend code :", 1, 2, 3, -3)) {
                 case 1 -> registration();
                 case 2 -> LoggingPanel();
                 case 3 -> {
@@ -31,7 +36,7 @@ public class Site {
                             .addFirst("\n").printByDelayChar(25, 2500);
                     return;
                 }
-                case -2021 -> {
+                case -3 -> {
                     System.out.print(">> password:");
                     if (new Scanner(System.in).nextLine().equalsIgnoreCase("Admin")) {
                         List<User> users = data.getUsers();
@@ -52,6 +57,10 @@ public class Site {
         }
     }
 
+    /**
+     * find user by username and password and if there was current go to guidancePanel
+     * @throws InterruptedException InterruptedException
+     */
     public void LoggingPanel() throws InterruptedException {
         Scanner scanner = new Scanner(System.in);
         int userIndex;
@@ -94,6 +103,14 @@ public class Site {
         guidancePanel(data.getUser(userIndex));
     }
 
+    /**
+     * guidance panel :"
+     * Show list of all flights"
+     * Flights setting"
+     * Logout
+     * @param currentUser currentUser
+     * @throws InterruptedException InterruptedException
+     */
     private void guidancePanel(User currentUser) throws InterruptedException {
         while (true) {
             ClearConsul.clsLn();
@@ -135,6 +152,10 @@ public class Site {
         }
     }
 
+    /**
+     * user flight setting by using adding or removing flight(s)
+     * @param currentUser currentUser
+     */
     public void userFlightsPanel(User currentUser) {
         while (true) {
             ClearConsul.clsLn();
@@ -239,6 +260,12 @@ public class Site {
                 .colorText(1, 13).addFirst("\n").println();
     }
 
+    /**
+     * to search on Data flight table and narrow it down and add by user choice
+     * @param table table
+     * @param title title
+     * @return selected flight(s) user
+     */
     private ArrayList<Flight> searchFlight(ArrayList<Flight> table, String title) {
         String titleTemp = new Text(" " + title + " ")
                 .makeCenter(siteLenLine, '.')
@@ -285,14 +312,13 @@ public class Site {
 
     /**
      * search by 'indexItem' in table and fill the enters
-     *
+     * and use the message for asking
      * @param message   message
      * @param indexItem indexItem
      * @param enters    enters
      * @param table     table
      * @return ArrayList of match flight
      */
-
     private ArrayList<Flight> enterInSearchFlight(String message, int indexItem
             , String[] enters, ArrayList<Flight> table) {
         ArrayList<Flight> ans = new ArrayList<>();
@@ -318,6 +344,12 @@ public class Site {
         return ans;
     }
 
+    /**
+     * || registering panel  ||
+     * || get username and password from user ||
+     * || add this user to users ||
+     * || stop on with 5 time limit ||
+     */
     public void registration() {
         new Text(" welcome to Registering ")
                 .makeCenter(siteLenLine, '.')

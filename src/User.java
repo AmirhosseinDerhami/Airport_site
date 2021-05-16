@@ -6,6 +6,10 @@ public class User {
     private int userId;
     private ArrayList<Flight> flights;
 
+    public User() {
+        flights = new ArrayList<>();
+    }
+
     public User(String username, String password) {
         this();
         this.username = username;
@@ -20,54 +24,35 @@ public class User {
     public ArrayList<Flight> getFlights() {
         return flights;
     }
-
+public String getPassword(){return password;}
+    /**
+     * add this flight(s) to flights list
+     *
+     * @param flights flights
+     */
     public void addFlights(ArrayList<Flight> flights) {
-       /* boring version/for (Flight flight : flights)
+       /*/for (Flight flight : flights)
             this.flights.add(flight);*/
         this.flights.addAll(flights);
     }
 
+    /**
+     * remove this flight(s) to flights list
+     *
+     * @param flights flights
+     */
     public void removeFlights(ArrayList<Flight> flights) {
         for (Flight flight : flights)
             this.flights.remove(flight);
     }
 
-    public User() {
-        flights = new ArrayList<>();
-    }
-
-
     public String getUsername() {
         return username;
     }
 
-    /*/public void setUsername(String username) {
-        this.username = username;
-    }
-
-
-    public void setPassword(String password) {
-        this.password = password;
-    }*/
-
-    public String getPassword() {
-        return password;
-    }
-
-
-    /*.public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        if (userId < 10000) {
-            System.out.println("\t\t>>Error");
-            return;
-        }
-        this.userId = userId;
-    }*/
-
-
+    /**
+     * @return simple string of user info
+     */
     @Override
     public String toString() {
         return String.format("userID :%d \t username :%s \t\tpassword :%s \n"

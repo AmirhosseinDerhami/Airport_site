@@ -83,6 +83,11 @@ public class Flight {
         this.time = time;
     }
 
+    /**
+     * check two flight are equal except flight id  *
+     * @param secondFlight secondFlight
+     * @return true by be equals
+     */
     public boolean equalExFlightId(Flight secondFlight) {
         return (this.getFlightId().equalsIgnoreCase(secondFlight.getFlightId()) &&
                 this.getDestinationCity().equalsIgnoreCase(secondFlight.getDestinationCity()) &&
@@ -91,6 +96,11 @@ public class Flight {
                 this.getDay().equalsIgnoreCase(secondFlight.getDay()))  ;
     }
 
+    /**
+     * print schedule of flights
+     * @param table schedule
+     * @param lenLine length of the line
+     */
     public static void printSchedule(ArrayList<Flight> table, int lenLine) {
          /*
          -->lenFlightID = 20

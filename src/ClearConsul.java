@@ -2,7 +2,7 @@ import java.io.IOException;
 
 public class ClearConsul {
     /**
-     *  Clears Screen in java
+     * Clears Screen in java
      */
     public static void cls() {
 
@@ -14,8 +14,10 @@ public class ClearConsul {
         } catch (IOException | InterruptedException ex) {
             System.out.print("");
         }
-    } /**
-     *  Clears Screen in java on go to next line
+    }
+
+    /**
+     * Clears Screen in java on go to next line
      */
     public static void clsLn() {
 
@@ -24,8 +26,9 @@ public class ClearConsul {
                 new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
             else
                 Runtime.getRuntime().exec("clear");
-        } catch (IOException | InterruptedException ex) {System.out.print("");
-        }finally {
+        } catch (IOException | InterruptedException ex) {
+            System.out.print("");
+        } finally {
             System.out.println();
         }
     }

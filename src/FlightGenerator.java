@@ -25,6 +25,10 @@ public class FlightGenerator {
         }};
     }
 
+    /**
+     *
+     * @return get random flight
+     */
     public Flight getFlight() {
         Flight flight = new Flight();
         //id

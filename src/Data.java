@@ -13,8 +13,8 @@ public class Data {
         setArrays();
         //default users
         users = new ArrayList() {{
-            for (int num = 1, nTemp = 0,nId=0; num <= 20; num++) {
-                User userTemp = new User("u" + num, "p" + num,100+(nId++)*3);
+            for (int num = 1, nTemp = 0, nId = 0; num <= 20; num++) {
+                User userTemp = new User("u" + num, "p" + num, 100 + (nId++) * 3);
                 int nFlightRow = new Random().nextInt(5);
                 userTemp.addFlights(new FlightGenerator().getSchedule(nFlightRow));
                 for (int i = 0; i < nFlightRow; i++, nTemp += new Random().nextInt(10) + 1)
@@ -67,6 +67,10 @@ public class Data {
         return users.get(index);
     }
 
+    /**
+     * add user to the users list
+     * @param user user
+     */
     public void addUser(User user) {
         users.add(user);
     }
@@ -114,8 +118,11 @@ public class Data {
             return true;
         }
 
-        for (int index = 0; index < users.size(); index++)
+      /*/  for (int index = 0; index < users.size(); index++)
             if (Data.gIns().getUser(index).getUsername().equals(username))
+                return true;*/
+        for (User user:Data.gIns().getUsers())
+            if (user.getUsername().equals(username))
                 return true;
         return false;
     }

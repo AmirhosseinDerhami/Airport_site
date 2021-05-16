@@ -32,6 +32,7 @@ public class ColorText {
 
 
     /**
+     * make color text
      * 0 TEXT_NO_Color(default)                ~~~~~
      * 1 TEXT_BLACK                ~~~~~
      * 2 TEXT_RED                ~~~~~
@@ -80,6 +81,6 @@ public class ColorText {
             case 8 -> TEXT_WHITE;
             default -> "";
         };
-        setText( bColor + tColor + string + TEXT_RESET) ;
+        setText(bColor + tColor + string + TEXT_RESET);
     }
-    }
+}
